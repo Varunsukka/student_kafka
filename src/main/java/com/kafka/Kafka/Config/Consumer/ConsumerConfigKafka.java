@@ -3,6 +3,8 @@ package com.kafka.Kafka.Config.Consumer;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,24 +17,27 @@ import org.springframework.kafka.support.serializer.JsonDeserializer;
 @Configuration
 @EnableKafka
 public class ConsumerConfigKafka {
-    public ConsumerConfigKafka() {
-    }
+
 
     @Bean
     public ConsumerFactory<String, String> consumerFactory() {
-        Map<String, Object> configProps = new HashMap();
-        configProps.put("bootstrap.servers", "localhost:9092");
-        configProps.put("group.id", "group_id");
-        configProps.put("key.deserializer", StringDeserializer.class.getName());
-        configProps.put("value.deserializer", JsonDeserializer.class.getName());
-        configProps.put("spring.json.trusted.packages", "*");
-        return new DefaultKafkaConsumerFactory(configProps);
+        Map<String, Object> configProps = new HashMap<>();
+        configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+        configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id1");
+
+        configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
+        configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class.getName());
+
+       configProps.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
+
+
+        return new DefaultKafkaConsumerFactory<>(configProps);
     }
 
     @Bean
     public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory();
-        factory.setConsumerFactory(this.consumerFactory());
+        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(consumerFactory());
         return factory;
     }
 }
