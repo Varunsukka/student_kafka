@@ -15,12 +15,10 @@ public class ConsumerService {
     private String consumedLastMessage;
     private final List<String> consumedMessages = new ArrayList();
 
-    public ConsumerService() {
-    }
 
     @KafkaListener(
-            topics = {"first_topic"},
-            groupId = "group_id"
+            topics = {"second_topic"},
+            groupId = "group_id1"
     )
     public void consume(String message) {
         this.consumedLastMessage = message;

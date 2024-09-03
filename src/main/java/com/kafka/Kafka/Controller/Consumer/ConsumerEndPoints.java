@@ -18,8 +18,6 @@ public class ConsumerEndPoints {
     @Autowired
     private ConsumerService consumerService;
 
-    public ConsumerEndPoints() {
-    }
 
     @GetMapping({"/consumeAll"})
     public List<String> consumeAll() {

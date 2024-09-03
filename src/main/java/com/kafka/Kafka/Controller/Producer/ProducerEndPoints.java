@@ -18,8 +18,6 @@ public class ProducerEndPoints {
     @Autowired
     private ProducerService producerService;
 
-    public ProducerEndPoints() {
-    }
 
     @PostMapping({"/publish"})
     public String PublishMessage(@RequestParam("message") String message) {

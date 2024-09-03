@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProducerService {
-    public static final String TOPIC = "first_topic";
+    public static final String TOPIC = "second_topic";
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     public ProducerService(KafkaTemplate<String, String> kafkaTemplate) {
@@ -18,6 +18,7 @@ public class ProducerService {
     }
 
     public void sendMessage(String message) {
-        this.kafkaTemplate.send("first_topic", message);
+        this.kafkaTemplate.send(TOPIC, message);
     }
+
 }
