@@ -20,7 +20,10 @@ public class ProducerEndPoints {
 
 
     @PostMapping({"/publish"})
-    public String PublishMessage(@RequestParam("message") String message) {
+    public String PublishMessage(@RequestParam(value = "message", required = false) String message) {
+        if (message==null || message.trim().isEmpty()) {
+            return "Message cannot be null or empty";
+        }
         this.producerService.sendMessage(message);
         return "Message published successfully";
     }
