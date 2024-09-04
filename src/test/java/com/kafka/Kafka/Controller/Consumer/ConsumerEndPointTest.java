@@ -1,10 +1,14 @@
 package com.kafka.Kafka.Controller.Consumer;
 
+<<<<<<< HEAD
 import com.kafka.Kafka.Service.Consumer.ConsumerService;
+=======
+>>>>>>> origin/master
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+<<<<<<< HEAD
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,4 +72,18 @@ public class ConsumerEndPointTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string("no Consumed Messages"));
     }
+=======
+import org.mockito.MockitoAnnotations;
+
+public class ConsumerEndPointTest {
+    @InjectMocks
+    private ConsumerEndPoints consumerEndPoints;
+
+    @BeforeEach
+    public void setUp(){
+        MockitoAnnotations.openMocks(this);
+    }
+
+
+>>>>>>> origin/master
 }
