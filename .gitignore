@@ -3,7 +3,7 @@ target/
 .mvn/wrapper/maven-wrapper.properties
 !**/src/main/**/target/
 !**/src/test/**/target/
-application.properties
+!**/src/main/resources/
 ### STS ###
 .apt_generated
 .classpath
@@ -12,14 +12,13 @@ application.properties
 .settings
 .springBeans
 .sts4-cache
-/src/main/resources/
+
 
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
-*.properties
 
 ### NetBeans ###
 /nbproject/private/
