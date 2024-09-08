@@ -11,8 +11,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProducerService {
-    public static final String TOPIC = "student";
+    public static final String TOPIC = "${kafka.topic.student}";
     private final KafkaTemplate<String, Student> kafkaTemplate;
+
 
     public ProducerService(KafkaTemplate<String, Student> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;

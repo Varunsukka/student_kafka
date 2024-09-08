@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.kafka.student.model.Student;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +19,9 @@ public class ConsumerService {
     private String consumedLastMessage;
     private final List<Student> students = new ArrayList();
 
-
     @KafkaListener(
-            topics = {"student"},
-            groupId = "group"
+            topics = "${kafka.topic.student}",
+            groupId = "${spring.kafka.consumer.group-id}"
     )
     public void consume(Student student) {
         System.out.println("lastmessage " + student);
