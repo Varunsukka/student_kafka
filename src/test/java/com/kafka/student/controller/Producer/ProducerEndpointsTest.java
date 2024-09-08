@@ -1,6 +1,6 @@
-package com.kafka.Kafka.Controller.Producer;
+package com.kafka.student.controller.Producer;
 
-import com.kafka.Kafka.Service.Producer.ProducerService;
+import com.kafka.student.service.producer.ProducerService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

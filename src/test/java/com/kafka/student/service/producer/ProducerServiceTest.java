@@ -1,4 +1,4 @@
-package com.kafka.Kafka.Service.Producer;
+package com.kafka.student.service.producer;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

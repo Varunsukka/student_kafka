@@ -1,9 +1,10 @@
 
-package com.kafka.Kafka.Config.Producer;
+package com.kafka.student.config.producer;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import com.kafka.student.model.Student;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +21,7 @@ public class ProducerConfigKafka {
 
 
     @Bean
-    public ProducerFactory<String, String> producerFactory() {
+    public ProducerFactory<String, Student> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -29,7 +30,7 @@ public class ProducerConfigKafka {
     }
 
     @Bean
-    public KafkaTemplate<String, String> kafkaTemplate() {
+    public KafkaTemplate<String, Student> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 }

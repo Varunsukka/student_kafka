@@ -1,9 +1,6 @@
-
-package com.kafka.Kafka.Config.Consumer;
-
+package com.kafka.student.config.consumer;
 import java.util.HashMap;
 import java.util.Map;
-
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
@@ -23,14 +20,10 @@ public class ConsumerConfigKafka {
     public ConsumerFactory<String, String> consumerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id1");
-
+        configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "group");
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class.getName());
-
        configProps.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
-
-
         return new DefaultKafkaConsumerFactory<>(configProps);
     }
 

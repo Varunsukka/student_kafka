@@ -1,4 +1,4 @@
-package com.kafka.Kafka.Service.Consumer;
+package com.kafka.student.service.consumer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

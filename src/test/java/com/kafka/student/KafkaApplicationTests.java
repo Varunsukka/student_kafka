@@ -1,4 +1,4 @@
-package com.kafka.Kafka;
+package com.kafka.student;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
